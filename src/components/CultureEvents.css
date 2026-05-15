@@ -1,0 +1,57 @@
+.culture-events {
+  padding: 24px 8px;
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-gray-light);
+}
+
+.event-list {
+  list-style: none;
+  margin-top: 16px;
+}
+
+.event-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 0.5px solid var(--color-gray-light);
+  gap: 12px;
+}
+
+.event-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.tag.blue {
+  background-color: var(--color-accent-blue);
+  color: var(--color-white); /* 가독성을 위해 흰색 텍스트 사용 (고대비 블루 기준) */
+}
+
+.event-link {
+  font-size: var(--font-body-size);
+  color: var(--color-black);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.event-status {
+  font-size: var(--font-small-size);
+  color: var(--color-gray-medium);
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.event-status.active {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.event-item:active {
+  background-color: var(--color-bg-light);
+}

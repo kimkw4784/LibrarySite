@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 8px;
+  background-color: var(--color-white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-image {
+  width: auto;
+  height: 40px;
+  object-fit: contain;
+}
+
+.site-name {
+  font-size: var(--font-h1-size);
+  font-weight: var(--font-h1-weight);
+  color: var(--color-black);
+}
+
+.menu-button {
+  width: var(--touch-target-min);
+  height: var(--touch-target-min);
+}
+
+.menu-button:active {
+  background-color: var(--color-bg-light);
+  border-radius: var(--radius-small);
+}

@@ -1,0 +1,127 @@
+.main-footer {
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-gray-light);
+  padding: 32px 16px 40px 16px;
+}
+
+.footer-top {
+  margin-bottom: 24px;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+}
+
+.footer-nav a {
+  font-size: var(--font-small-size);
+  color: var(--color-gray-dark);
+  text-decoration: none;
+}
+
+.footer-nav a.privacy-policy {
+  font-weight: 700;
+  color: var(--color-black);
+}
+
+.footer-middle {
+  margin-bottom: 32px;
+}
+
+.family-site {
+  position: relative;
+  width: 100%;
+  max-width: 200px;
+}
+
+.family-site-btn {
+  width: 100%;
+  height: 44px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-dark);
+  font-size: var(--font-small-size);
+  color: var(--color-black);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.family-site-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.family-site-btn.open svg {
+  transform: rotate(180deg);
+}
+
+.family-site-list {
+  width: 100%;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-dark);
+  border-top: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: var(--shadow-medium);
+}
+
+.family-site-list li a {
+  display: block;
+  padding: 12px 16px;
+  font-size: var(--font-small-size);
+  color: var(--color-gray-dark);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-gray-light);
+}
+
+.family-site-list li a:hover {
+  background-color: var(--color-bg-light);
+  color: var(--color-primary);
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.footer-info address {
+  font-style: normal;
+  font-size: var(--font-small-size);
+  color: var(--color-gray-medium);
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.copyright {
+  font-size: 12px;
+  color: var(--color-gray-medium);
+  letter-spacing: 0.02em;
+}
+
+.footer-sns {
+  display: flex;
+  gap: 16px;
+}
+
+.sns-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-bg-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--color-gray-dark);
+  transition: all 0.2s ease;
+}
+
+.sns-icon:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}

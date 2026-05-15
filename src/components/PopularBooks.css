@@ -1,0 +1,98 @@
+.popular-books {
+  padding: 32px 16px;
+  background-color: var(--color-white);
+}
+
+.book-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+}
+
+.book-tabs::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.tab-button {
+  font-size: var(--font-h2-size); /* 24px */
+  font-weight: 500;
+  color: var(--color-gray-medium);
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  min-height: 44px;
+}
+
+.tab-button.active {
+  font-weight: 700;
+  color: var(--color-white);
+  background-color: var(--color-primary); /* Deep Blue */
+  border-radius: var(--radius-small) var(--radius-small) 0 0;
+}
+
+.book-list-wrapper {
+  margin-top: 16px;
+}
+
+.book-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 16px;
+  padding-bottom: 16px;
+}
+
+.book-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.book-cover {
+  width: 100%;
+  aspect-ratio: 180 / 260;
+  height: auto;
+  background-color: var(--color-bg-light);
+  border-radius: var(--radius-small);
+  overflow: hidden;
+  box-shadow: var(--shadow-low);
+}
+
+.book-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.book-title {
+  font-size: var(--font-body-size);
+  font-weight: 600;
+  color: var(--color-black);
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.book-author {
+  font-size: var(--font-small-size);
+  color: var(--color-gray-medium);
+}
+
+/* 포커스 스타일 */
+.tab-button:focus-visible {
+  outline: 3px solid var(--color-accent-blue);
+  outline-offset: -3px;
+}

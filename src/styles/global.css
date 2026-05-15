@@ -1,0 +1,129 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+:root {
+  /* [색상] 분석된 피그마 디자인 시스템 적용 */
+  --color-primary: #1a3c6e;
+  /* Deep Blue */
+  --color-primary-dark: #102646;
+  --color-accent-coral: #cd4335;
+  /* 고대비 코랄 (4.5:1 이상 확보) */
+  --color-accent-blue: #2b7de9;
+  /* 고대비 블루 (문화행사용, 4.5:1 이상 확보) */
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-dark: #343434;
+  /* 주요 텍스트 */
+  --color-gray-medium: #707070;
+  /* 고대비 회색 (4.5:1 이상 확보) */
+  --color-gray-light: #e0e0e0;
+  /* 구분선 및 보더 */
+
+  --color-bg-light: #f5f5f5;
+  --color-bg-overlay: rgba(255, 255, 255, 0.6);
+
+  /* [Radius] 규칙 */
+  --radius-pill: 20px;
+  --radius-small: 4px;
+
+  /* [Effects] 규칙 */
+  --shadow-low: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.25);
+
+  /* [Typography] 분석된 텍스트 계층 구조 */
+  --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+
+  --font-h1-size: 28px;
+  --font-h1-weight: 700;
+
+  --font-h2-size: 24px;
+  --font-h2-weight: 600;
+
+  --font-body-size: 16px;
+  --font-body-weight: 400;
+
+  --font-small-size: 14px;
+  --font-small-weight: 400;
+
+  /* [Accessibility] 웹 접근성 가이드 */
+  --touch-target-min: 44px;
+  --font-min-size: 12px;
+  --breakpoint-tablet: 481px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-main);
+  font-size: var(--font-body-size);
+  color: var(--color-gray-dark);
+  background-color: var(--color-bg-light);
+  line-height: 1.5;
+  min-width: 320px;
+  /* 모바일 최소 너비 */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  min-width: var(--touch-target-min);
+  min-height: var(--touch-target-min);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+}
+
+h1 {
+  font-size: var(--font-h1-size);
+  font-weight: var(--font-h1-weight);
+  color: var(--color-black);
+}
+
+h2 {
+  font-size: var(--font-h2-size);
+  font-weight: var(--font-h2-weight);
+}
+
+/* 유틸리티 클래스 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 480px; /* 기본 모바일 너비 */
+  margin: 0 auto;
+  background-color: var(--color-white);
+  min-height: 100vh;
+  border: 0.5px solid var(--color-gray-light);
+  position: relative;
+  overflow-x: hidden;
+}
+
+@media (min-width: 481px) {
+  .container {
+    max-width: 768px; /* 태블릿 너비 확장 */
+  }
+}

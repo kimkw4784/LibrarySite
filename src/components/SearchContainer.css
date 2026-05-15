@@ -1,0 +1,55 @@
+.search-container {
+  padding: 16px 8px;
+  background-color: var(--color-white);
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-white);
+  border: 3px solid var(--color-primary); /* Mars Navy */
+  padding: 0 4px 0 16px;
+  height: 60px;
+  width: 100%;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: var(--font-body-size);
+  color: var(--color-black);
+  outline: none;
+  padding: 8px 0;
+}
+
+.search-input::placeholder {
+  color: var(--color-gray-medium);
+}
+
+.search-input:focus::placeholder {
+  color: transparent;
+}
+
+.search-button {
+  width: 44px;
+  height: 44px;
+  color: var(--color-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-button:active {
+  color: var(--color-primary);
+  transform: scale(0.9);
+}
+
+/* 포커스 시 테두리 두께 강화 효과 */
+.search-bar:focus-within {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -1px;
+  border-color: var(--color-primary);
+}
