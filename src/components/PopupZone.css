@@ -329,8 +329,8 @@
     gap: calc(8 / 372 * 100%); /* 전체 높이 대비 간격 비율 */
     overflow-y: auto;
     position: relative;
-    /* 마지막 아이템이 최상단에 올 수 있도록 여백 추가 */
-    padding-bottom: 300%; 
+    /* 무한 루프 구현을 위해 기존 여백 제거 */
+    padding-bottom: 0; 
   }
 
   .tablet-carousel-track::-webkit-scrollbar {

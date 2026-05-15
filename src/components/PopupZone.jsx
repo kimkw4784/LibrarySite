@@ -61,6 +61,7 @@ const banners = [
 
 const PopupZone = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -69,28 +70,50 @@ const PopupZone = () => {
 
   useEffect(() => {
     if (tabletCarouselRef.current) {
-      // 렌더링이 완전히 완료된 후 계산하기 위해 setTimeout 사용
-      const timer = setTimeout(() => {
-        const container = tabletCarouselRef.current;
-        const thumbs = container.querySelectorAll('.tablet-thumb');
+      const container = tabletCarouselRef.current;
+      const thumbs = container.querySelectorAll('.tablet-thumb');
+      
+      // 기본 타겟은 중간 세트(두 번째 banners)
+      let targetIndex = banners.length + currentIndex;
+      let isLooping = false;
+
+      // [특수 케이스 처리]
+      // 5번(마지막) -> 1번(처음)으로 이동 시 아래로 내려가는 연출
+      if (prevIndex === banners.length - 1 && currentIndex === 0) {
+        targetIndex = banners.length * 2; // 세 번째 세트의 첫 번째 (index 10)
+        isLooping = true;
+      } 
+      // 1번(처음) -> 5번(마지막)으로 이동 시 위로 올라가는 연출
+      else if (prevIndex === 0 && currentIndex === banners.length - 1) {
+        targetIndex = banners.length - 1; // 첫 번째 세트의 마지막 (index 4)
+        isLooping = true;
+      }
+
+      if (thumbs[targetIndex]) {
+        const targetTop = thumbs[targetIndex].offsetTop;
         
-        if (thumbs[currentIndex]) {
-          const targetTop = thumbs[currentIndex].offsetTop;
-          
-          // scrollTo가 작동하지 않는 경우를 대비해 직접 scrollTop 조정
-          // 부드러운 효과를 위해 behavior: 'smooth'는 scrollTo로 유지하되
-          // 만약 그래도 안되면 scrollTop으로 강제 이동 시도
-          try {
-            container.scrollTo({
-              top: targetTop,
-              behavior: 'smooth'
-            });
-          } catch (e) {
-            container.scrollTop = targetTop;
+        try {
+          container.scrollTo({
+            top: targetTop,
+            behavior: 'smooth'
+          });
+
+          // 루핑 연출 후 중간 위치로 몰래 복귀
+          if (isLooping) {
+            setTimeout(() => {
+              const normalIndex = banners.length + currentIndex;
+              const normalTop = thumbs[normalIndex].offsetTop;
+              container.scrollTo({
+                top: normalTop,
+                behavior: 'auto'
+              });
+            }, 450); // smooth scroll 애니메이션 시간 고려
           }
+        } catch (e) {
+          container.scrollTop = targetTop;
         }
-      }, 50);
-      return () => clearTimeout(timer);
+      }
+      setPrevIndex(currentIndex);
     }
   }, [currentIndex]);
 
@@ -218,15 +241,19 @@ const PopupZone = () => {
           <div className="tablet-vertical-carousel">
             <div className="tablet-carousel-highlight" aria-hidden="true"></div>
             <div className="tablet-carousel-track" ref={tabletCarouselRef}>
-              {banners.map((banner, index) => (
-                <div 
-                  key={banner.id} 
-                  className={`tablet-thumb ${index === currentIndex ? 'active' : ''}`}
-                  onClick={() => setCurrentIndex(index)}
-                >
-                  <img src={banner.image} alt="" aria-hidden="true" />
-                </div>
-              ))}
+              {/* 무한 루프처럼 보이기 위해 배열을 3번 반복 렌더링 */}
+              {[...banners, ...banners, ...banners].map((banner, index) => {
+                const realIndex = index % banners.length;
+                return (
+                  <div 
+                    key={`${banner.id}-${index}`} 
+                    className={`tablet-thumb ${realIndex === currentIndex ? 'active' : ''}`}
+                    onClick={() => setCurrentIndex(realIndex)}
+                  >
+                    <img src={banner.image} alt="" aria-hidden="true" />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
