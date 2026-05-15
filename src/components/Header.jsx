@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.css';
-import logo-image from "/logo.png";
+import logo from "/logo.png";
 
 const Header = ({ onMenuClick }) => {
   return (
@@ -8,7 +8,7 @@ const Header = ({ onMenuClick }) => {
       <div className="header-logo" role="img" aria-label="화성시립도서관 로고">
         <img
           src={logo}
-          alt="" 
+          alt="화성시립도서관 로고"
           className="logo-image"
         />
         <h1 className="site-name">화성시립도서관</h1>
