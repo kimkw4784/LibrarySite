@@ -48,7 +48,9 @@
   /* [Accessibility] 웹 접근성 가이드 */
   --touch-target-min: 44px;
   --font-min-size: 12px;
-  --breakpoint-tablet: 481px;
+  --breakpoint-mobile: 402px;
+  --breakpoint-tablet: 744px;
+  --breakpoint-desktop: 1024px;
 }
 
 * {
@@ -113,7 +115,8 @@ h2 {
 
 .container {
   width: 100%;
-  max-width: 480px; /* 기본 모바일 너비 */
+  max-width: 402px;
+  /* 모바일 기준 */
   margin: 0 auto;
   background-color: var(--color-white);
   min-height: 100vh;
@@ -122,8 +125,119 @@ h2 {
   overflow-x: hidden;
 }
 
-@media (min-width: 481px) {
+@media (min-width: 744px) {
   .container {
-    max-width: 768px; /* 태블릿 너비 확장 */
+    max-width: 1023px;
+    /* 태블릿 기준 */
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 모바일, 태블릿 (1023px 이하): 기존 DOM 순서(시각적 순서)를 강제로 유지하기 위해 래퍼를 무효화하고 order 사용 */
+.desktop-top-row,
+.desktop-top-right,
+.desktop-middle-row {
+  display: contents;
+}
+
+.popup-zone {
+  order: 1;
+}
+
+.core-services {
+  order: 2;
+}
+
+.culture-events {
+  order: 3;
+}
+
+.search-container {
+  order: 4;
+}
+
+.icons-container {
+  order: 5;
+}
+
+.popular-books {
+  order: 6;
+}
+
+@media (min-width: 1024px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 32px 0;
+    /* 데스크탑 메인 패딩 (필요시 조정) */
+  }
+
+  /* 데스크탑 래퍼 복구 */
+  .desktop-top-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    padding: 16px 64px;
+    order: unset;
+  }
+
+  .desktop-middle-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    order: unset;
+    padding: 32px 64px;
+    /* order 초기화 */
+  }
+
+  .desktop-top-right {
+    display: flex;
+    flex-direction: column;
+    order: unset;
+  }
+
+  .popup-zone {
+    min-width: 560px;
+    order: unset;
+  }
+
+  .desktop-top-right {
+    max-width: 428px;
+  }
+
+  /* 검색창과 퀵메뉴 사이 간격 */
+  .desktop-top-right>* {
+    margin-bottom: 24px;
+  }
+
+  .desktop-top-right>*:last-child {
+    margin-bottom: 0;
+  }
+
+  .desktop-middle-row {
+    gap: 24px;
+  }
+
+  .core-services,
+  .culture-events {
+    width: calc(50% - 12px);
+    /* 정확히 50:50 배치 */
+    order: unset;
+  }
+
+  .popular-books {
+    order: unset;
   }
 }

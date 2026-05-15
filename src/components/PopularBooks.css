@@ -1,5 +1,5 @@
 .popular-books {
-  padding: 32px 16px;
+  padding: 32px 20px;
   background-color: var(--color-white);
 }
 
@@ -9,15 +9,18 @@
   gap: 16px;
   margin-bottom: 24px;
   overflow-x: auto;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .book-tabs::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+  display: none;
+  /* Chrome, Safari */
 }
 
 .tab-button {
-  font-size: var(--font-h2-size); /* 24px */
+  font-size: var(--font-h2-size);
+  /* 24px */
   font-weight: 500;
   color: var(--color-gray-medium);
   padding: 8px 12px;
@@ -32,7 +35,8 @@
 .tab-button.active {
   font-weight: 700;
   color: var(--color-white);
-  background-color: var(--color-primary); /* Deep Blue */
+  background-color: var(--color-primary);
+  /* Deep Blue */
   border-radius: var(--radius-small) var(--radius-small) 0 0;
 }
 
@@ -91,8 +95,32 @@
   color: var(--color-gray-medium);
 }
 
-/* 포커스 스타일 */
-.tab-button:focus-visible {
-  outline: 3px solid var(--color-accent-blue);
-  outline-offset: -3px;
+/* 태블릿 이상 (744px+) */
+@media (min-width: 744px) {
+  .popular-books {
+    padding: 32px 32px;
+  }
+
+  .book-list {
+    grid-template-columns: repeat(4, 1fr);
+    /* 2x2에서 4x1로 변경 */
+    gap: 24px 20px;
+  }
+
+  .book-cover {
+    aspect-ratio: 150 / 210;
+    /* 태블릿에서는 약간 더 슬림하게 조정 가능 */
+  }
+
+  @media (min-width: 1024px) {
+    .popular-books {
+      padding: 32px 64px;
+    }
+  }
+
+  /* 포커스 스타일 */
+  .tab-button:focus-visible {
+    outline: 3px solid var(--color-accent-blue);
+    outline-offset: -3px;
+  }
 }

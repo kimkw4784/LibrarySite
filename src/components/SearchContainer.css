@@ -1,5 +1,5 @@
 .search-container {
-  padding: 16px 8px;
+  padding: 16px 20px;
   background-color: var(--color-white);
 }
 
@@ -8,7 +8,8 @@
   align-items: center;
   justify-content: space-between;
   background-color: var(--color-white);
-  border: 3px solid var(--color-primary); /* Mars Navy */
+  border: 3px solid var(--color-primary);
+  /* Mars Navy */
   padding: 0 4px 0 16px;
   height: 60px;
   width: 100%;
@@ -52,4 +53,16 @@
   outline: 2px solid var(--color-primary);
   outline-offset: -1px;
   border-color: var(--color-primary);
+}
+
+@media (min-width: 744px) {
+  .search-container {
+    padding: 24px 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .search-container {
+    padding: 0;
+  }
 }

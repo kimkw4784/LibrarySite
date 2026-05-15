@@ -125,3 +125,35 @@
   background-color: var(--color-primary);
   color: var(--color-white);
 }
+
+@media (min-width: 1024px) {
+  .main-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 40px 0; /* 글로벌 레이아웃 컨테이너 안에 있으므로 좌우 여백은 0이거나 container에 맞춤. 만약 꽉 찬다면 padding: 40px 32px */
+    flex-wrap: wrap; /* 내용이 너무 많을 경우를 대비 */
+    gap: 32px;
+  }
+
+  .footer-top {
+    margin-bottom: 0;
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 40px;
+    margin-bottom: 0;
+    flex: 2;
+    justify-content: flex-end;
+  }
+
+  .footer-middle {
+    margin-bottom: 0;
+    order: 3; /* 유관기관을 맨 우측으로 */
+  }
+}

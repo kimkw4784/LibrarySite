@@ -72,7 +72,7 @@ const PopupZone = () => {
     if (tabletCarouselRef.current) {
       const container = tabletCarouselRef.current;
       const thumbs = container.querySelectorAll('.tablet-thumb');
-      
+
       // 기본 타겟은 중간 세트(두 번째 banners)
       let targetIndex = banners.length + currentIndex;
       let isLooping = false;
@@ -82,7 +82,7 @@ const PopupZone = () => {
       if (prevIndex === banners.length - 1 && currentIndex === 0) {
         targetIndex = banners.length * 2; // 세 번째 세트의 첫 번째 (index 10)
         isLooping = true;
-      } 
+      }
       // 1번(처음) -> 5번(마지막)으로 이동 시 위로 올라가는 연출
       else if (prevIndex === 0 && currentIndex === banners.length - 1) {
         targetIndex = banners.length - 1; // 첫 번째 세트의 마지막 (index 4)
@@ -91,10 +91,12 @@ const PopupZone = () => {
 
       if (thumbs[targetIndex]) {
         const targetTop = thumbs[targetIndex].offsetTop;
-        
+        const targetLeft = thumbs[targetIndex].offsetLeft;
+
         try {
           container.scrollTo({
             top: targetTop,
+            left: targetLeft,
             behavior: 'smooth'
           });
 
@@ -103,14 +105,17 @@ const PopupZone = () => {
             setTimeout(() => {
               const normalIndex = banners.length + currentIndex;
               const normalTop = thumbs[normalIndex].offsetTop;
+              const normalLeft = thumbs[normalIndex].offsetLeft;
               container.scrollTo({
                 top: normalTop,
+                left: normalLeft,
                 behavior: 'auto'
               });
             }, 450); // smooth scroll 애니메이션 시간 고려
           }
         } catch (e) {
           container.scrollTop = targetTop;
+          container.scrollLeft = targetLeft;
         }
       }
       setPrevIndex(currentIndex);
@@ -245,8 +250,8 @@ const PopupZone = () => {
               {[...banners, ...banners, ...banners].map((banner, index) => {
                 const realIndex = index % banners.length;
                 return (
-                  <div 
-                    key={`${banner.id}-${index}`} 
+                  <div
+                    key={`${banner.id}-${index}`}
                     className={`tablet-thumb ${realIndex === currentIndex ? 'active' : ''}`}
                     onClick={() => setCurrentIndex(realIndex)}
                   >
@@ -287,7 +292,7 @@ const PopupZone = () => {
                       <p>문의: {selectedBanner.contact}</p>
                     </div>
                   </div>
-              <button className="collapse-btn" onClick={closeModal}>내용 닫기</button>
+                  <button className="collapse-btn" onClick={closeModal}>내용 닫기</button>
                 </div>
               )}
             </div>

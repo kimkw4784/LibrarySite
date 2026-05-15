@@ -1,13 +1,6 @@
 import React from 'react';
 import './CoreMenus.css';
 
-const services = [
-  { id: 'notice', title: '도서관 소식', icon: '📰' },
-  { id: 'lecture', title: '강좌 신청', icon: '✍️' },
-  { id: 'info', title: '이용 안내', icon: '📚' },
-  { id: 'location', title: '도서관 위치', icon: '📍' },
-];
-
 const notices = [
   { id: 1, category: '공통', categoryType: 'darkgray', title: '[도서관 소식지 풍경] 2026년 봄호(65호) 발간 안내', date: '2026-04-10' },
   { id: 2, category: '화성', categoryType: 'coralred', title: '화성시립남양도서관 기간제근로자 채용 공고', date: '2026-04-03' },
@@ -18,15 +11,6 @@ const notices = [
 const CoreMenus = () => {
   return (
     <div className="core-services">
-      <div className="menu-grid">
-        {services.map((service) => (
-          <button key={service.id} className="menu-card" aria-label={`${service.title} 메뉴로 이동`}>
-            <span className="menu-icon">{service.icon}</span>
-            <span className="menu-title">{service.title}</span>
-          </button>
-        ))}
-      </div>
-
       <section className="notice-section">
         <div className="section-header">
           <h2 className="section-title">공지사항</h2>

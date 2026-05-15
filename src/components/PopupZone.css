@@ -1,6 +1,6 @@
 .popup-zone {
   width: 100%;
-  padding: 0 8px;
+  padding: 0 20px;
   background-color: var(--color-white);
 }
 
@@ -238,25 +238,36 @@
   margin: 8px 0;
   color: #555555;
 }
-/* [반응형] 태블릿 스타일 (481px 이상) */
+
+/* [반응형] 태블릿 스타일 (744px 이상) */
 .tablet-layout-wrapper,
 .tablet-left-content,
 .tablet-right-content {
-  display: contents; /* 모바일에서는 레이아웃에 영향을 주지 않음 */
+  display: contents;
+  /* 모바일에서는 레이아웃에 영향을 주지 않음 */
 }
 
 .tablet-vertical-carousel {
   display: none;
 }
 
-@media (min-width: 481px) {
+@media (min-width: 744px) {
+  .popup-zone {
+    padding: 0;
+  }
+
+  .indicator-container {
+    display: none;
+  }
+
   /* 태블릿 레이아웃 래퍼 */
   .tablet-layout-wrapper {
     display: flex;
     gap: calc(12 / 678 * 100%);
-    padding: 16px;
+    padding: 16px 32px;
     background-color: var(--color-white);
-    align-items: flex-start; /* 높이는 비율에 따라 유동적으로 결정됨 */
+    align-items: flex-start;
+    /* 높이는 비율에 따라 유동적으로 결정됨 */
   }
 
   /* 왼쪽: 배너 + 컨트롤러 */
@@ -275,11 +286,13 @@
     border: none;
     overflow: hidden;
     position: relative;
+    margin-bottom: 8px;
   }
 
   .banner-controls {
     width: 100%;
-    aspect-ratio: 550 / 44; /* 비율 유지 */
+    aspect-ratio: 550 / 44;
+    /* 비율 유지 */
     padding: 0;
     margin: 0;
     justify-content: center;
@@ -300,7 +313,8 @@
 
   .tablet-vertical-carousel {
     width: 100%;
-    aspect-ratio: 120 / 372; /* (324+44+4) 전체 높이 비율 유지 */
+    aspect-ratio: 120 / 372;
+    /* (324+44+4) 전체 높이 비율 유지 */
     overflow: hidden;
     position: relative;
     display: flex;
@@ -313,7 +327,8 @@
     top: 0;
     left: 0;
     width: 100%;
-    aspect-ratio: 120 / 75.55; /* 372px 높이에 4.5개를 맞추기 위한 정밀 비율 */
+    aspect-ratio: 120 / 75.55;
+    /* 372px 높이에 4.5개를 맞추기 위한 정밀 비율 */
     border: 3px solid var(--color-primary);
     border-radius: var(--radius-small);
     pointer-events: none;
@@ -326,11 +341,12 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: calc(8 / 372 * 100%); /* 전체 높이 대비 간격 비율 */
+    gap: calc(8 / 372 * 100%);
+    /* 전체 높이 대비 간격 비율 */
     overflow-y: auto;
     position: relative;
     /* 무한 루프 구현을 위해 기존 여백 제거 */
-    padding-bottom: 0; 
+    padding-bottom: 0;
   }
 
   .tablet-carousel-track::-webkit-scrollbar {
@@ -340,7 +356,8 @@
   .tablet-thumb {
     flex: 0 0 auto;
     width: 100%;
-    aspect-ratio: 120 / 75.55; /* 하이라이트와 동일한 비율 적용 */
+    aspect-ratio: 120 / 75.55;
+    /* 하이라이트와 동일한 비율 적용 */
     border-radius: var(--radius-small);
     overflow: hidden;
     border: none;
@@ -354,12 +371,14 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.5; /* 활성화되지 않은 항목은 더 어둡게 */
+    opacity: 0.5;
+    /* 활성화되지 않은 항목은 더 어둡게 */
     transition: opacity 0.3s;
   }
 
   .tablet-thumb.active img {
-    opacity: 1; /* 최상단에 온 활성 항목만 밝게 */
+    opacity: 1;
+    /* 최상단에 온 활성 항목만 밝게 */
   }
 
   .control-btn.prev,
@@ -385,6 +404,111 @@
   }
 }
 
+
+@media (min-width: 1024px) {
+  .popup-zone {
+    padding: 0;
+    /* padding은 main 등에서 제어되거나 원래 디자인에 맞춤 */
+  }
+
+  .tablet-layout-wrapper {
+    display: grid;
+    /* Carousel(490) : Controls(181) 비율, 남은 공간은 자동 gap */
+    grid-template-columns: 70% 25.85%;
+    justify-content: space-between;
+    grid-template-areas:
+      "banner banner"
+      "carousel controls";
+    /* 배너와 하단(캐러셀+컨트롤러) 사이의 여백 8px 고정 */
+    row-gap: 8px;
+    padding: 0;
+    /* 내부 패딩 제거하여 정확한 비율 적용 */
+  }
+
+  .tablet-left-content,
+  .tablet-right-content {
+    display: contents;
+  }
+
+  .banner-container {
+    grid-area: banner;
+    aspect-ratio: 700 / 386.74;
+    width: 100%;
+    margin-bottom: 0;
+    /* grid row-gap으로 제어하므로 마진 초기화 */
+  }
+
+  .tablet-vertical-carousel {
+    grid-area: carousel;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    aspect-ratio: 490 / 55;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .tablet-carousel-track {
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    gap: 2%;
+    /* 10px / 490px */
+    padding-bottom: 0;
+  }
+
+  .tablet-thumb {
+    flex: 0 0 auto;
+    /* 캐러셀 1개: 100x55 -> 100/490 = 20.4% */
+    width: 20.4%;
+    height: 100%;
+    aspect-ratio: 100 / 55;
+  }
+
+  .tablet-carousel-highlight {
+    width: 20.4%;
+    height: 100%;
+    aspect-ratio: 100 / 55;
+    border-width: 4px;
+  }
+
+  .banner-controls {
+    grid-area: controls;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    aspect-ratio: 181 / 55;
+    background-color: #f1f3f5;
+    padding: 0 10%;
+    margin: 0;
+    border-radius: var(--radius-small);
+    gap: 12px;
+  }
+
+  .control-btn.prev {
+    order: 1;
+  }
+
+  .control-btn.next {
+    order: 2;
+  }
+
+  .control-btn.play-pause {
+    order: 3;
+  }
+
+  .control-btn.play-pause {
+    flex: none;
+    width: 44px;
+    margin: 0;
+  }
+
+  .play-text {
+    display: none;
+  }
+}
 
 @keyframes fadeIn {
   from {

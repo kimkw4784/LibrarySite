@@ -21,11 +21,17 @@ function App() {
       <Header onMenuClick={toggleSitemap} />
       <Sitemap isOpen={isSitemapOpen} onClose={() => setIsSitemapOpen(false)} />
       <main>
-        <PopupZone />
-        <CoreMenus />
-        <CultureEvents />
-        <SearchContainer />
-        <IconsContainer />
+        <div className="desktop-top-row">
+          <PopupZone />
+          <div className="desktop-top-right">
+            <SearchContainer />
+            <IconsContainer />
+          </div>
+        </div>
+        <div className="desktop-middle-row">
+          <CoreMenus />
+          <CultureEvents />
+        </div>
         <PopularBooks />
       </main>
       <Footer />
