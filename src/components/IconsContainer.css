@@ -133,5 +133,9 @@
     .icons-container {
       padding: 0;
     }
+    .quick-menu-item {
+      width: 213px;
+      min-width: 213px;
+    }
   }
 }

@@ -205,16 +205,17 @@ main {
   .desktop-top-right {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     order: unset;
+    flex: 0 0 438px;
+    width: 438px;
   }
 
   .popup-zone {
-    min-width: 560px;
+    min-width: 440px;
+    max-width: 700px;
+    flex: 1;
     order: unset;
-  }
-
-  .desktop-top-right {
-    max-width: 428px;
   }
 
   /* 검색창과 퀵메뉴 사이 간격 */

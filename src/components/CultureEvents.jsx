@@ -8,7 +8,7 @@ const events = [
   { id: 4, tag: '문화행사', title: '여름밤의 클래식 음악회 초대', status: '접수중' },
 ];
 
-const CultureEvents = () => {
+const CultureEvents = ({ onItemClick }) => {
   return (
     <section className="culture-events" aria-labelledby="events-heading">
       <div className="section-header">
@@ -20,7 +20,10 @@ const CultureEvents = () => {
           <li key={event.id} className="event-item">
             <div className="event-content">
               <span className="tag blue">{event.tag}</span>
-              <a href="#" className="event-link">{event.title}</a>
+              <a href="#" className="event-link" onClick={(e) => {
+                e.preventDefault();
+                if (onItemClick) onItemClick(event);
+              }}>{event.title}</a>
             </div>
             <span className={`event-status ${event.status === '접수중' ? 'active' : ''}`}>
               {event.status}

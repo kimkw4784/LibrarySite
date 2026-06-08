@@ -208,15 +208,12 @@ const PopupZone = () => {
               </div>
             ))}
 
-            <div className="indicator-container" role="tablist">
+            <div className="indicator-container" aria-label="현재 배너 위치">
               {banners.map((_, index) => (
-                <button
+                <span
                   key={index}
                   className={`indicator-dot ${index === currentIndex ? 'active' : ''}`}
-                  onClick={() => setCurrentIndex(index)}
-                  aria-label={`${index + 1}번 배너로 이동`}
-                  aria-selected={index === currentIndex}
-                  role="tab"
+                  aria-current={index === currentIndex ? 'true' : 'false'}
                 />
               ))}
             </div>

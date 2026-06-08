@@ -8,7 +8,7 @@ const notices = [
   { id: 4, category: '이벤트', categoryType: 'coralred', title: '2026년 상반기 독서교실 수강생 모집', date: '2026-03-15' },
 ];
 
-const CoreMenus = () => {
+const CoreMenus = ({ onItemClick }) => {
   return (
     <div className="core-services">
       <section className="notice-section">
@@ -21,7 +21,10 @@ const CoreMenus = () => {
             <li key={notice.id} className="notice-item">
               <div className="notice-content">
                 <span className={`tag ${notice.categoryType}`}>{notice.category}</span>
-                <a href="#" className="notice-link">{notice.title}</a>
+                <a href="#" className="notice-link" onClick={(e) => {
+                  e.preventDefault();
+                  if (onItemClick) onItemClick(notice);
+                }}>{notice.title}</a>
               </div>
               <span className="notice-date">{notice.date}</span>
             </li>
