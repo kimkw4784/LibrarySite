@@ -208,12 +208,11 @@ const PopupZone = () => {
               </div>
             ))}
 
-            <div className="indicator-container" aria-label="현재 배너 위치">
+            <div className="indicator-container" aria-hidden="true">
               {banners.map((_, index) => (
                 <span
                   key={index}
                   className={`indicator-dot ${index === currentIndex ? 'active' : ''}`}
-                  aria-current={index === currentIndex ? 'true' : 'false'}
                 />
               ))}
             </div>
