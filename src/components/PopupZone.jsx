@@ -78,20 +78,24 @@ const PopupZone = () => {
       const container = tabletCarouselRef.current;
       const thumbs = container.querySelectorAll('.tablet-thumb');
 
-      // 기본 타겟은 중간 세트(두 번째 banners)
-      let targetIndex = banners.length + currentIndex;
+      const prevPhysicalIndex = banners.length + prevIndex;
+      const leftDistance = (prevIndex - currentIndex + banners.length) % banners.length;
+      let targetIndex;
       let isLooping = false;
 
-      // [특수 케이스 처리]
-      // 5번(마지막) -> 1번(처음)으로 이동 시 아래로 내려가는 연출
-      if (prevIndex === banners.length - 1 && currentIndex === 0) {
-        targetIndex = banners.length * 2; // 세 번째 세트의 첫 번째 (index 10)
-        isLooping = true;
-      }
-      // 1번(처음) -> 5번(마지막)으로 이동 시 위로 올라가는 연출
-      else if (prevIndex === 0 && currentIndex === banners.length - 1) {
-        targetIndex = banners.length - 1; // 첫 번째 세트의 마지막 (index 4)
-        isLooping = true;
+      if (leftDistance === 1) {
+        // 왼쪽으로 1칸 이동하는 경우에만 왼쪽(역방향)으로 스크롤
+        targetIndex = prevPhysicalIndex - 1;
+        if (targetIndex < banners.length) {
+          isLooping = true;
+        }
+      } else {
+        // 그 외 모든 이동(오른쪽 이동 및 2칸 이상 왼쪽 이동)은 오른쪽(순방향)으로 스크롤
+        const rightDistance = (currentIndex - prevIndex + banners.length) % banners.length;
+        targetIndex = prevPhysicalIndex + rightDistance;
+        if (targetIndex >= banners.length * 2) {
+          isLooping = true;
+        }
       }
 
       if (thumbs[targetIndex]) {
