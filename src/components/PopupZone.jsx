@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import './PopupZone.css';
+import banner1 from '../assets/banner1.png';
+import banner2 from '../assets/banner2.png';
+import banner3 from '../assets/banner3.png';
+import banner4 from '../assets/banner4.png';
+import banner5 from '../assets/banner5.png';
 
 const banners = [
   {
     id: 1,
     title: '<매주 수요일> 문화가 있는 날',
     color: '#1a3c6e',
-    image: 'https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/84c5d734-33f0-4c50-ab2d-0cb0e54a757f',
+    image: banner1,
     description: '4월 1일부터 화성시립도서관에서 매주 수요일 문화가 있는 날 두배로 대출 DAY가 시작됩니다~',
     date: '매주 수요일',
     location: '도서관 소식 - 공지사항',
@@ -17,7 +22,7 @@ const banners = [
     id: 2,
     title: '전자책(e-Book) 이용 방법 안내',
     color: '#2b908f',
-    image: 'https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/99957617-fce2-4560-981f-b583a3e6010b',
+    image: banner2,
     description: '스마트폰과 PC로 언제 어디서나 편리하게 화성시립도서관의 5만 여종 전자책을 무료로 대출하고 열람하는 방법을 안내해 드립니다.',
     date: '연중 상시',
     location: '도서관 소식 - 이용안내',
@@ -28,7 +33,7 @@ const banners = [
     id: 3,
     title: '도서관 주간 두배로 대출 이벤트',
     color: '#f9a826',
-    image: 'https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/d49dd4b6-555e-4e9b-baf0-a482a605a889',
+    image: banner3,
     description: '제62회 도서관 주간을 맞이하여, 행사 기간 동안 1인당 도서 대출 권수를 기존 7권에서 14권으로 두 배 확대합니다!',
     date: '2026. 04. 12 ~ 2026. 04. 18',
     location: '도서관 소식 - 행사안내',
@@ -39,7 +44,7 @@ const banners = [
     id: 4,
     title: '오디오북 제작사업 참여자 모집',
     color: '#673ab7',
-    image: 'https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/703214eb-ad8e-4ced-aebe-778783563940',
+    image: banner4,
     description: '시각장애인을 위한 소리 도서 제작에 목소리 재능기부로 참여할 낭독 봉사자를 모집합니다. 전문 성우의 낭독 교육도 무료로 지원됩니다.',
     date: '2026. 06. 01 ~ 2026. 06. 15',
     location: '도서관 소식 - 자원봉사',
@@ -50,7 +55,7 @@ const banners = [
     id: 5,
     title: '비블리오 배틀 주제 시민 공모',
     color: '#2e7d32',
-    image: 'https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/6db72490-58c5-412b-b57f-1cec14a6470d',
+    image: banner5,
     description: '시민들이 직접 책을 소개하고 토론하는 서평 대결, "비블리오 배틀"에서 다룰 흥미로운 주제를 시민 여러분이 직접 제안해 주세요!',
     date: '2026. 05. 20 ~ 2026. 06. 10',
     location: '도서관 소식 - 공지사항',
