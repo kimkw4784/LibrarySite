@@ -13,7 +13,7 @@ const CultureEvents = ({ onItemClick }) => {
     <section className="culture-events" aria-labelledby="events-heading">
       <div className="section-header">
         <h2 id="events-heading" className="section-title">문화행사/강좌</h2>
-        <button className="more-btn" aria-label="문화행사/강좌 더보기">더보기 &gt;</button>
+        <button className="more-btn" aria-label="문화행사/강좌 더보기">+ 더보기</button>
       </div>
       <ul className="event-list">
         {events.map((event) => (
