@@ -229,7 +229,7 @@ const PopupZone = () => {
 
           <div className="banner-controls">
             <button className="control-btn prev" onClick={goToPrev} aria-label="이전 배너">
-              <span className="icon">◀</span>
+              <span className="icon">←</span>
             </button>
 
             <button
@@ -242,7 +242,7 @@ const PopupZone = () => {
             </button>
 
             <button className="control-btn next" onClick={goToNext} aria-label="다음 배너">
-              <span className="icon">▶</span>
+              <span className="icon">→</span>
             </button>
           </div>
         </div>
