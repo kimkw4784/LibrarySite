@@ -11,9 +11,9 @@
 
 ## 2. 배포 및 관련 링크
 
-- **Live Demo:** [바로가기](https://kimkw4784.github.io/LibrarySite/))
+- **Live Demo:** [바로가기](https://kimkw4784.github.io/LibrarySite/)
 - **GitHub Repository:** [바로가기](https://github.com/kimkw4784/LibrarySite)
-- **Design (Figma):** [바로가기](https://www.figma.com/design/v9Xph6QfHI3FFw1FYboBiX/%EA%B3%B5%EA%B3%B5%EC%82%AC%EC%9D%B4%ED%8A%B8-%EA%B0%9C%EC%84%A0?node-id=0-1&t=Xh9K0QJ6S3v0EqDy-1))
+- **Design (Figma):** [바로가기](https://www.figma.com/design/v9Xph6QfHI3FFw1FYboBiX/%EA%B3%B5%EA%B3%B5%EC%82%AC%EC%9D%B4%ED%8A%B8-%EA%B0%9C%EC%84%A0?node-id=0-1&t=Xh9K0QJ6S3v0EqDy-1)
 
 ---
 
@@ -81,10 +81,10 @@ src
 
 ## 8. 트러블 슈팅 (Troubleshooting)
 
-### 이슈 1: 배너 자동 순환 시 스크린 리더의 지나친 음성 간섭 문제
+### 이슈 1: 반응형 환경 구축 및 퍼블리싱 레이아웃 어긋남 문제
 
-- **상황:**
-- **해결:**
+- **상황:** 다양한 디바이스 화면 크기에 대응하는 과정에서, 화면 해상도가 변할 때마다 배너 컨트롤러의 끝선이 어긋나거나 썸네일 이미지가 깨져 보이는 등 디테일한 UI 레이아웃 불균형 문제가 발생함. 퍼블리싱 디테일을 잡아내는 데 있어 디바이스별 반응형 기준 정립의 필요성을 확인함.
+- **해결:** 메인 과제인 '배너 컨트롤러 개선'에 몰입할 수 있도록 피그마 연동과 생성형 AI 바이브 코딩을 적극 활용함. 이를 통해 코드 디버깅 시간을 대폭 줄이고 디바이스별 퍼블리싱 디테일과 하위 서브 페이지 구성을 효율적으로 마무리함.
 
 ---
 
